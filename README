@@ -1,0 +1,42 @@
+################################################################################
+Author: Zera Holladay (printf("%s%s@%s.com\n", zera, holladay, gmail);)
+
+################################################################################
+Use: 
+
+See example.c for trivial examples.  example.c covers only basic use of the 
+dictionary/hash code.  I think most users will find this gives them the
+greatest benefit for the least investment in their time.  I tried to wrap up
+useful and clear functionality in dict.h.
+
+################################################################################
+About:
+
+There are three components:
+
+1. The rb_tree code is a red-black tree implementation.  The code is flat and 
+simple, designed to be extended into other libraries.  The programmer is 
+responsible for managing all memory but there's a utility function called
+rb_nalloc.
+
+2. The lx_tree code (lx as in lexer) is a dictionary extension built on top of 
+the rb_tree code.  This code is very GCC-centric, but I'm not entirely happy 
+about this (once a philosopher, twice a pervert if you see lx_apply).  The
+programmer is responsible for allocating memory for only the key/value pairs.
+
+3. dict.h is a dictionary/hash interface designed to hide details.  See example.c
+to get started.
+
+################################################################################
+Design:
+
+I wanted to learn about red and black trees, so I ended up writing this as
+a result.  I read a lot of tutorials on the net and hoped this might help 
+someone with a programming assignment or two.
+
+################################################################################
+To do:
+
+1. Add strsave().
+
+2. Add comments.

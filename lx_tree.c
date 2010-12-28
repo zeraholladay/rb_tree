@@ -1,9 +1,9 @@
 #include "lx_tree.h"
 
 inline static int lx_hash(char *str) {
-        int i = 5381;
-        while (NULL != *str) i += 32*i + *str++;
-        return i;
+	int c, key = 191;
+	while (NULL != (c = *str++)) key += (32 * key) + (c * c);
+	return key;
 }
 
 inline static lx_node * lx_lookup2(rb_node *root, 
@@ -50,12 +50,10 @@ int lx_apply(rb_node *root, void (*func)(lx_node *)) {
 
 		while (NULL != lx) {
 			tmp = LX_NEXT(lx);
-			if (NULL == func) free(lx);
-			else func(lx);
+			func(lx);
 			lx = tmp;
 			++i;
 		}
-		if (NULL == func) free(n);
 	}
 
 	j = rb_apply(root, lx_cb);
