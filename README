@@ -19,7 +19,7 @@ simple, designed to be extended into other libraries.  The programmer is
 responsible for managing all memory but there's a utility function called
 rb_nalloc.
 
-2. The lx_tree code (lx as in lexer) is a dictionary extension built on top of 
+2. The lx_tree code (lx as in lexicon) is a dictionary extension built on top of 
 the rb_tree code.  This code is very GCC-centric, but I'm not entirely happy 
 about this (once a philosopher, twice a pervert if you see lx_apply).  The
 programmer is responsible for allocating memory for only the key/value pairs.
