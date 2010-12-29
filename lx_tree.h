@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "hash.h"
 #include "rb_tree.h"
 
 #define LX_NEXT(n)	((n)->next)

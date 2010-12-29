@@ -1,6 +1,6 @@
 CC=gcc 
 CFLAGS=-Wall
-CFILES=rb_tree.c lx_tree.c
+CFILES=rb_tree.c lx_tree.c hash.c strsave.c
 OBJS=$(CFILES:.c=.o)
 OUTLIB=libdict.so
 

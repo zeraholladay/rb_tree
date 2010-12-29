@@ -1,10 +1,5 @@
 #include "lx_tree.h"
-
-inline static int lx_hash(char *str) {
-	int c, key = 191;
-	while (NULL != (c = *str++)) key += (32 * key) + (c * c);
-	return key;
-}
+#include "hash.h"
 
 inline static lx_node * lx_lookup2(rb_node *root, 
 				     char *str, 
@@ -13,7 +8,7 @@ inline static lx_node * lx_lookup2(rb_node *root,
 	lx_node *lx;
 	size_t len;
 
-	*key = lx_hash(str);
+	*key = hash(str);
 	*n = rb_lookup(root, *key);
 
 	if (NULL != *n) {
@@ -68,7 +63,7 @@ int lx_insert(rb_node **root, char *str, void *val) {
 	int key;
 
 	if (NULL == *root) { 
-		key = lx_hash(str);
+		key = hash(str);
 		lx = lx_nalloc(str, val);
 
 		if (NULL == lx)
